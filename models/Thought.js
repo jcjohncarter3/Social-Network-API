@@ -2,10 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const reactionSchema = new Schema(
   {
-    reactionId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-    },
+    // reactionId: {
+    //   type: Schema.Types.ObjectId,
+    //   default: () => new Types.ObjectId(),
+    // },
     reactionBody: {
       type: String,
       required: true,
@@ -25,12 +25,17 @@ const reactionSchema = new Schema(
   {
     toJSON: {
       getters: true,
+      virtuals: true,
     },
     id: false,
   }
 );
 
-module.exports = reactionSchema;
+// reactionSchema.virtual("reactionId").get(function () {
+//   return this._id;
+// });
+
+// module.exports = reactionSchema;
 
 const thoughtSchema = new Schema(
   {
